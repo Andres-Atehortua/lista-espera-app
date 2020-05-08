@@ -12,6 +12,9 @@ io.on("connection", (client) => {
 
   client.on("nextTicket", (data, callback) => {
     callback(ticketControl.next());
+    client.broadcast.emit("currentTicket", {
+      actualTicket: ticketControl.getLastTicket(),
+    });
   });
 
   client.on("attendTicket", (data, callback) => {

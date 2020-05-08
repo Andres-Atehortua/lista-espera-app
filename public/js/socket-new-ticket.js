@@ -17,3 +17,7 @@ document.querySelector("button").onclick = () => {
     document.getElementById("lblNuevoTicket").innerText = nextTicket;
   });
 };
+
+socket.on("currentTicket", (data) => {
+  document.getElementById("lblNuevoTicket").innerText = data.actualTicket;
+});
